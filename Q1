@@ -1,3 +1,14 @@
+###Problem Statement
+#Write a script which keeps track of the first and last user who used the
+#system every wednesday. The entries should be saved in a file named “Wed.txt”
+#under two columns “User_Name” and “Time_In”.
+#When the total number of entries in this file reach 50 find out the user with the
+#maximum number of entries
+
+##Solution---
+
+#This code will extract the information of first and last user who used the system on that day and save the first and last name to 
+#file wed.txt, using crontab it will run on only wednesday at 23:59 every week so only data of wednesday will get save into the wed.txt
 
 touch wed.txt
 var=1
