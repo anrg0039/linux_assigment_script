@@ -30,7 +30,7 @@ then
 if [ $var == 1 ]
 then
 data=$(awk '{print $1,$6}' file1)
-echo "$data">>wed.txt
+echo "$data">>wed.txt            #It will save the first entry of that day
 fi
 var=$var+1
 data=$(awk '{print $1,$6}' file1)
@@ -38,7 +38,7 @@ fi
 fi
 done<v
 
-echo "$data">>wed.txt
+echo "$data">>wed.txt        #It will save the last entry of that day.
 li=$(wc -l<wed.txt)
 if [ $li -gt 50 ]
 then
