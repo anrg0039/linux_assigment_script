@@ -1,0 +1,39 @@
+
+touch wed.txt
+var=1
+touch v
+last -R>v
+
+while read line
+do
+touch file1
+echo "$line">file1
+day=$(awk '{print $5}' file1)
+name=$(awk '{print $1}' file1)
+regrex="^([0-9])"
+if [[ $day =~ $regrex ]]
+then
+d=$(date +%e)
+if [ $d -eq $day ]
+then
+if [ $var == 1 ]
+then
+data=$(awk '{print $1,$6}' file1)
+echo "$data">>wed.txt
+fi
+var=$var+1
+data=$(awk '{print $1,$6}' file1)
+fi
+fi
+done<v
+
+echo "$data">>wed.txt
+li=$(wc -l<wed.txt)
+if [ $li -gt 50 ]
+then
+echo "wed.txt is having more than 50 entries"
+user=$(cat wed.txt|tr " " "\n"|sort|uniq -c|sort -bnr|head -n 1)
+echo "Name of the user which is having maximum entries ------$user"
+else
+echo "file is having $li entries"
+fi
